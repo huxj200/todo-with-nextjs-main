@@ -5,6 +5,8 @@ import Select from "../components/Page-select";
 
 const url = "http://localhost:3000/api/task";
 
+
+
 export default function Home(props) {
 
 	const [count, setCount] = useState(1);
@@ -117,8 +119,7 @@ export default function Home(props) {
 					</div>
 
 				</>
-				<Select tasks={tasks} count={count} />
-				{Select(tasks, count)}
+				<Select tasks={tasks} count={count} setTasks={setTasks} />
 				{/* {tasks.map((task) => (
 					<div className={styles.task_container} key={task._id}>
 						<input
