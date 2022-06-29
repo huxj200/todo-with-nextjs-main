@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import styles from "../styles/Home.module.css";
+import Select from "../components/Page-select";
 
 const url = "http://localhost:3000/api/task";
 
@@ -106,17 +107,22 @@ export default function Home(props) {
 							onClick={() => done()}
 							className={styles.remove_task}
 						>
-							{"done"}
+							{"doing"}
 						</button><button
 							onClick={() => doing()}
 							className={styles.remove_task}
 						>
-							{"doing"}
+							{"done"}
 						</button>
 					</div>
 
 				</>
-				{tasks.map((task) => (
+
+
+				{/* {console.log("count:" + count)}
+				{Select(tasks)} */}
+				<Select tasks={tasks} count={count} />
+				{/* {tasks.map((task) => (
 					<div className={styles.task_container} key={task._id}>
 						<input
 							type="checkbox"
@@ -146,7 +152,7 @@ export default function Home(props) {
 							&#10006;
 						</button>
 					</div>
-				))}
+				))} */}
 				{tasks.length === 0 && <h2 className={styles.no_tasks}>No tasks</h2>}
 			</div>
 		</main>
