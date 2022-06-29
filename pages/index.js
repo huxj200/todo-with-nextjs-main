@@ -5,6 +5,15 @@ import styles from "../styles/Home.module.css";
 const url = "http://localhost:3000/api/task";
 
 export default function Home(props) {
+
+	const [count, setCount] = useState(1);
+
+	const all = () => setCount(count => count = 1);
+	const done = () => setCount(count => count = 2);
+	const doing = () => setCount(count => count = 3);
+
+
+
 	const [tasks, setTasks] = useState(props.tasks);
 	const [task, setTask] = useState({ task: "" });
 
@@ -63,6 +72,7 @@ export default function Home(props) {
 			const { data } = await axios.delete(url + "/" + id);
 			setTasks((prev) => prev.filter((task) => task._id !== id));
 			console.log(data.message);
+			console.log(count);
 		} catch (error) {
 			console.log(error);
 		}
@@ -84,6 +94,28 @@ export default function Home(props) {
 						{task._id ? "Update" : "Add"}
 					</button>
 				</form>
+				<>
+					<div className={styles.container} >
+						<button
+							onClick={() => all()}
+							className={styles.remove_task}
+						>
+							{"all"}
+						</button>
+						<button
+							onClick={() => done()}
+							className={styles.remove_task}
+						>
+							{"done"}
+						</button><button
+							onClick={() => doing()}
+							className={styles.remove_task}
+						>
+							{"doing"}
+						</button>
+					</div>
+
+				</>
 				{tasks.map((task) => (
 					<div className={styles.task_container} key={task._id}>
 						<input

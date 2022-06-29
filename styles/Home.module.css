@@ -5,7 +5,7 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	background-color: #cb7cef;
+	background-color: #d5cdd8;
 }
 
 .heading {
@@ -97,6 +97,7 @@
 	font-size: 16px;
 	cursor: pointer;
 	padding: 0 5px;
+	display: inline-block
 }
 
 .no_tasks {
@@ -111,4 +112,8 @@
 	border-radius: 5px;
 	background-color: #cecbcb75;
 	color: #252525a4;
+}
+
+.buttom1 {
+	display: inline-block;
 }
