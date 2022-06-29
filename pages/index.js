@@ -117,11 +117,8 @@ export default function Home(props) {
 					</div>
 
 				</>
-
-
-				{/* {console.log("count:" + count)}
-				{Select(tasks)} */}
 				<Select tasks={tasks} count={count} />
+				{Select(tasks, count)}
 				{/* {tasks.map((task) => (
 					<div className={styles.task_container} key={task._id}>
 						<input
