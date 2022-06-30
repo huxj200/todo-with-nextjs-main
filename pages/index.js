@@ -14,6 +14,7 @@ export default function Home(props) {
 	const all = () => setCount(count => count = 1);
 	const done = () => setCount(count => count = 2);
 	const doing = () => setCount(count => count = 3);
+	const delete_all = () => setCount(count => count = 4);
 
 
 
@@ -115,11 +116,17 @@ export default function Home(props) {
 							className={styles.remove_task}
 						>
 							{"done"}
+						</button><button
+							onClick={() => delete_all()}
+							className={styles.remove_task}
+						>
+							{"delete_all"}
 						</button>
 					</div>
 
 				</>
-				<Select tasks={tasks} count={count} setTasks={setTasks} />
+				{count === 4 && <h2 className={styles.no_tasks}>No tasks</h2>}
+				<Select tasks={tasks} count={count} setTasks={setTasks} all={all} />
 				{/* {tasks.map((task) => (
 					<div className={styles.task_container} key={task._id}>
 						<input
