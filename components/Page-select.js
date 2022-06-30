@@ -6,7 +6,7 @@ import axios from "axios";
 const url = "http://localhost:3000/api/task";
 
 
-function Select({ tasks, count, setTasks }) {
+function Select({ tasks, count, setTasks, all }) {
 
 
     const [task, setTask] = useState({ task: "" });
@@ -157,6 +157,15 @@ function Select({ tasks, count, setTasks }) {
                     : <></>
 
             ))
+        )
+    } else if (count === 4) {
+        all()
+        tasks.map((task) => (
+            deleteTask(task._id)
+        ))
+        return (
+            <h2 className={styles.no_tasks}>No tasks</h2>
+
         )
     }
 }
